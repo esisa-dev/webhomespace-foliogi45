@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Space</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1 class="title">Welcome to Your Home Space</h1>
+    <div class="bodys">
+        <a class="logout" href="/logout"><img src="/static/assets/power.gif"></a>
+        
+        <br><br><br><br><br>
+        <button onclick="showAllRows()">Home</button>
+        <script>
+        function showAllRows() {
+          var tableRows = document.querySelectorAll("#file-table tr");
+          tableRows.forEach(function(row) {
+          row.style.display = "";
+          });
+        }
+        </script>
+
+        <button onclick="filterTable('Directory')">Directory</button>
+        <script>
+            function filterTable(type) {
+              var tableRows = document.querySelectorAll("#file-table tr");
+              tableRows.forEach(function(row) {
+                if (row.cells[1].textContent != type) {
+                  row.style.display = "none";
+                } else {
+                  row.style.display = "";
+                }
+              });
+            }
+        </script>         
+        <button onclick="filterTable('File')">Files</button>
+        <script>
+          function filterTable(type) {
+            var tableRows = document.querySelectorAll("#file-table tr");
+            tableRows.forEach(function(row) {
+              if (row.cells[1].textContent != type) {
+                row.style.display = "none";
+              } else {
+                row.style.display = "";
+              }
+            });
+          }
+        </script>
+        
+        <br><br><br><br>
+
+        <div class="search-container">
+          <input type="text" placeholder="Search..." id="search-input">
+          <button type="button" onclick="searchTable()">Search</button>
+        </div>
+
+        <script>
+          function searchTable() {
+            var query = document.getElementById("search-input").value.trim().toLowerCase();
+            var tableRows = document.querySelectorAll("#file-table tr");
+            tableRows.forEach(function(row) {
+              var cells = row.cells;
+              var showRow = false;
+              for (var i = 0; i < cells.length; i++) {
+                if (cells[i].textContent.toLowerCase().includes(query)) {
+                  showRow   = true;
+                  break;
+                }
+              }
+              row.style.display = showRow ? "" : "none";
+            });
+          }
+        </script>
+        
+        <table class="table-data" id="file-table">
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Date modification</th>
+            </tr>
+            {% for item in items %}
+            <tr>
+                <td>
+                    {% if item.type == 'Directory' %}
+                    <a href="/dir?path={{ path }}/{{ item.name }}">{{ item.name }}</a>
+                    {% else %}
+                    {{ item.name }}
+                    {% endif %}
+                </td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.size }}</td>
+                <td>{{ item.mod_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

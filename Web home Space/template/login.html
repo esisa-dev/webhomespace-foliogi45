@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <h1 class="title">Authentication</h1>
+    <form action="/login" method="post">
+        <div class="sheet">
+            <label>Login</label><br>
+            <input type="text" name="login"/><br>
+            <label>Password</label><br>
+            <input type="password" name="password"/><br>
+            <br>
+            <input class="button" type="submit" value="Authentication"/>
+            <p style="color: red;">{{error_auth}}</p>
+        </div>
+    </form>
+    
+</body>
+</html>
