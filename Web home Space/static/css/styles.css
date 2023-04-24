@@ -1,0 +1,98 @@
+body{
+    background-color: rgb(62, 59, 58)
+}
+.title{
+    color: #709de0;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    font-size: 50px;
+}
+
+.logout{
+    margin-left: 1500px;
+}
+.logout>img{
+    background-color: rgb(62, 59, 58);
+    border: none;
+    border-radius: 50%;
+}
+body{
+    margin-left: 100px;
+    margin-right:100px;
+}
+.bodys>button{
+    border: none;
+    margin-left: 100px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    background-color: yellow;
+    border-radius: 20px;
+}
+.bodys>button:first-of-type{
+    background-color: aquamarine;
+}
+.bodys>button:hover{
+    background-color: #709de0;
+}
+
+.text{
+    margin-left: 50px;
+    width: 300px;
+    height: 25px;
+    border-radius: 10px;
+}
+.table-data{
+    width: 100%;
+    border: 1px solid gray;
+    border-collapse: collapse;
+    overflow-y: scroll;
+    background-color: #252e37;
+}
+.table-data td ,.table-data th{
+    border: 1px solid gray;
+    padding: 1px;
+    text-align: center;
+}
+.table-data th{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: gainsboro;
+}
+
+.table-data td{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: aliceblue;
+}
+.table-data td >a{
+    color: #3179e6;
+}
+
+.search-container {
+    margin-bottom: 20px;
+  }
+  
+  .search-container input[type=text] {
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .search-container button[type=button] {
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-container button[type=button]:hover {
+    background-color: #45a049;
+  }
+  
